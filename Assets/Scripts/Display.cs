@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using LitJson;
 
 public class Display : MonoBehaviour {
     public string ip = "192.168.0.102";
@@ -43,8 +44,10 @@ public class Display : MonoBehaviour {
         {
             Debug.Log("request success");
             Debug.Log("returned data" + www.text);
+            JsonData data = JsonMapper.ToObject(www.text);
+            Debug.Log(data["value_up"][1]);
+            Debug.Log(data["item_list"][0]["name_ko"]);
         }
-        print(www.text);
     }
 	
 	// Update is called once per frame
